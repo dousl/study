@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id='example1'>
+			<button v-on:click="counter+=1">Add 1</button>
+			<p>{{counter}}</p>
+		</div>
+
+		<div id="example2">
+			<button v-on:click="greet">Greet</button>
+		</div>
+		
+		<div id="example3">
+			<button v-on:click="say('hi',$event)">Say Hi</button>
+			<button v-on:click="say('hello')">Say hello</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			new Vue({
+				el: "#example1",
+				data: {
+					counter: 0
+				}
+			})
+
+			new Vue({
+				el: "#example2",
+				data: {
+					name: "hello"
+				},
+				methods: {
+					greet: function(event) {
+						alert(this.name);
+					}
+				}
+			})
+			
+			new Vue({
+				el:"#example3",
+				methods:{
+					say:function(message,event){
+						alert(message)
+						alert(event)
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

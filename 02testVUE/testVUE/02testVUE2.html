@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<div id="app">
+		<p>{{foo}}</p>
+		<button v-on:click="foo='baz'"> change it</button>
+	</div>
+	<div id="app-2">
+		<span>{{msg}}</span>
+		<p>Using mustaches: {{ rawHtml }}</p>
+		<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+		<div v-bind:id="dynamicId">v-bind-id</div>
+		<button v-bind:disabled="isButtonDisabled">Button</button>
+		<a v-bind:href="url">aaa</a>
+		<a v-bind:[someAttr]="value"> ... </a>
+	</div>
+
+	<div id="example">
+		<p>{{message}}</p>
+		<p>{{reversedMessage }}</p>
+	</div>
+
+	<div id="demo">
+		{{fullName}}
+	</div>
+
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var data = {
+				a: 1
+			};
+			var vm = new Vue({
+				data: data
+			})
+			/*当这些数据改变时，视图会进行重渲染。值得注意的是只有当实例被创建时就已经存在于 data 中的属性才是响应式的。也就是说如果你添加一个新的属性，比如：
+			vm.b = 'hi'
+			那么对 b 的改动将不会触发任何视图的更新。如果你知道你会在晚些时候需要一个属性，但是一开始它为空或不存在，那么你仅需要设置一些初始值*/
+
+			var obj = {
+				foo: 'bar'
+			}
+			//Object.freeze(obj)
+			var vm2 = new Vue({
+				el: "#app",
+				data: obj
+			})
+			vm2.$watch('foo', function(newValue, oldValue) {
+				alert(newValue)
+			})
+
+			new Vue({
+				data: {
+					a: 1
+				},
+				created: function() {
+					console.log(this.a)
+				}
+			})
+
+			new Vue({
+				el: "#app-2",
+				data: {
+					msg: 'qqqq',
+					rawHtml: '<span style="color:red">111</span>',
+					dynamicId: "123",
+					isButtonDisabled: true,
+					url: "www.baidu.com",
+					someattr: 'href',
+					value: 'http:www.baidu.com'
+				}
+			})
+
+			var vm = new Vue({
+				el: '#example',
+				data: {
+					message: 'hello'
+				},
+				computed: {
+					reversedMessage: function() {
+						return this.message.split('').reverse().join('');
+					}
+				}
+			})
+			//methods 没有缓存
+			//computed 计算属性是基于它们的响应式依赖进行缓存的 
+			//侦听属性，当你有一些数据需要随着其它数据变动而变动时通常更好的做法是使用计算属性而不是命令式的 watch 回调
+			//计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter
+			var vm3 = new Vue({
+				el: "#demo",
+				data: {
+					firstName: 'fir',
+					lastName: 'las',
+//					fullName: '111'
+				},
+				computed:{
+					fullName:function(){
+						return this.firstName + ' ' + this.lastName
+					}
+				}
+//				watch: {
+//					firstName: function(val) {
+//						this.fullName = val + ' ' + this.lastName;
+//					},
+//					lastName: function(val) {
+//						this.fullName = this.firstName + ' ' + val;
+//					}
+//				}
+			})
+		</script>
+	</body>
+
+</html>
