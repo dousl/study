@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dousl.learn.boot2.dao.mapper.LearnSpringboot2Mapper">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from learn_springboot2
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </delete>
+  <update id="updateByPrimaryKey" parameterType="com.dousl.learn.boot2.domain.LearnSpringboot2">
+    update learn_springboot2
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_desc = #{userDesc,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select pk_id, user_id, user_name, user_desc, create_time, update_time
+    from learn_springboot2
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </select>
+</mapper>

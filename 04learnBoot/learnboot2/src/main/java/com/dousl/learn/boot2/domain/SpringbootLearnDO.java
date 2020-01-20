@@ -1,4 +1,4 @@
-package com.dousl.learnBoot2.domain;
+package com.dousl.learn.boot2.domain;
 
 import java.util.Date;
 

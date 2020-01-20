@@ -1,4 +1,4 @@
-package com.dousl.learnBoot2;
+package com.dousl.learn.boot2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

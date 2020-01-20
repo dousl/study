@@ -11,7 +11,7 @@
 	<groupId>com.dousl</groupId>
 	<artifactId>learnboot2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>learnBoot2</name>
+	<name>learn-boot2</name>
 	<description>db project for Spring Boot</description>
 
 	<properties>
@@ -55,6 +55,18 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<!--自动生成实体类-->
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<!--mybatisplus-->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>3.3.0</version>
 		</dependency>
 	</dependencies>
 
