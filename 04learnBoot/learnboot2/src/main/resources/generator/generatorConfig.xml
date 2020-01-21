@@ -65,7 +65,7 @@
             <property name="rootClass" value="Model&lt;${domainObjectName}&gt;"/>
         </javaModelGenerator>
         <!-- 生成xml文件 -->
-        <sqlMapGenerator targetPackage="${mapperTargetPackage}" targetProject="${mapperTargetProject}" >
+        <sqlMapGenerator targetPackage="${mapperXmlTargetPackage}" targetProject="${mapperTargetProject}" >
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成mapxml对应client，mapper也就是接口dao -->
