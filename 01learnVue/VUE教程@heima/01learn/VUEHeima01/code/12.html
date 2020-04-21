@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<a v-bind:href="url">百度</a>
+		<a :href="url">百度1</a>
+		<button v-on:click="handle">切换</button>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 属性绑定
+			 */
+			Vue.config.keyCodes.aaa = 65
+			var app = new Vue({
+				el: "#app",
+				data: {
+					url:'http://www.baidu.com'
+				},
+				methods:{
+					handle:function(event){
+						this.url="http://www.youku.com"
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

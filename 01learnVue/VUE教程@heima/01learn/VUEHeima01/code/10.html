@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<form>
+			<div>
+				用户名：
+				<input type="text" v-model="info" v-on:keyup.aaa="handle"/>
+			</div>
+			
+		</form>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 事件绑定-自定义按键修饰符
+			 * 规则：自定义案件修饰符，名字是自定义的，但是对应的值必须是按键对应event.keyCode值
+			 */
+			Vue.config.keyCodes.aaa = 65
+			var app = new Vue({
+				el: "#app",
+				data: {
+					info:''
+				},
+				methods:{
+					handle:function(event){
+						console.log(event.keyCode)
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

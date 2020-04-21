@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<div>
+			{{msg}}
+		</div>
+		<div>
+			<input v-bind:value="msg" v-on:input="handle"/>
+			<input v-bind:value="msg" v-on:input="msg=$event.target.value"/>
+			<input type="text" v-model="msg" name="" id="" value="" />
+		</div>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * v-model指令的本质
+			 * v-bind 属性绑定
+			 * v-on 事件绑定
+			 */
+			Vue.config.keyCodes.aaa = 65
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg:'hello'
+				},
+				methods:{
+					handle:function(event){
+						//使用输入域中最新数据覆盖原来数据
+						console.log(event.target.value)
+						this.msg = event.target.value
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

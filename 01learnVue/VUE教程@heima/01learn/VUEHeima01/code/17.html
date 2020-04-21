@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.active{
+				color: red;
+				border: 0.0625rem solid #FF0000;
+				width: 6.25rem;
+				height: 6.25rem;
+			}
+			.err{
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div v-bind:style="{border: borderStyle,width: widthStyle,height: heightStyle}">123</div>
+			<div v-bind:style="objStyle">123</div>
+			<div v-bind:style="[objStyle,overRideStyle]">456</div>
+			<button v-on:click="handle">切换</button>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 样式绑定之内联样式Style
+			 */
+			var app = new Vue({
+				el: "#app",
+				data: {
+					borderStyle:'solid 1px blue',
+					widthStyle:'100px',
+					heightStyle:'200px',
+					objStyle:{
+						border:'1px solid green',
+						width:'200px',
+						height:'100px'
+					},
+					overRideStyle:{
+						border:'5px orange',
+						backgroundColor:'yellow'
+					}
+				},
+				methods:{
+					handle:function(){
+						this.heightStyle='100px';
+						this.objStyle.width='100px'
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

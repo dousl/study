@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+			<div>{{num}} </div>
+			<div>
+				<button v-on:click="num++">点击</button><br />
+				<button @click="num++">点击@</button><br />
+				<button @click="handle1">点击函数</button><br />
+				<button @click="handle2()">点击函数2</button><br />
+				<button @click="handle2(123,456,$event)">点击函数-传参</button> 注意此处的$event不能随便写，只能是$event<br />
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 事件绑定
+			 * 1.如果事件直接绑定函数名称，那么默认会传递事件对象作为事件函数的第一个参数
+			 * 2.如果事件绑定函数调用，那么事件对象必须作为最后一个参数进行显式传递，并且事件对象名称必须是$event
+			 */
+			var app = new Vue({
+				el: "#app",
+				data: {
+					"num": 1
+				},
+				methods:{
+					handle2:function(p,p1,event){
+						//这里的this是vue的实例对象
+						console.log(this===app)
+						console.log(p,p1)
+						console.log(event.target.innerHTML)
+						this.num++;
+					},
+					handle1:function(){
+						console.log(event.target.innerHTML)
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

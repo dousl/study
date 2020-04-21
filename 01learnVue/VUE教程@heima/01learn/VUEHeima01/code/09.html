@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<form>
+			<div>
+				用户名：
+				<input type="text" v-model="name" v-on:keyup.delete="clear"/>
+			</div>
+			<div>
+				密码：
+				<input type="text" v-on:keyup.enter="handleSubmit" v-model="pwd"/>
+			</div>
+			<button type="button" v-on:click="handleSubmit">提交</button>
+		</form>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 事件绑定-按键修饰符
+			 */
+			var app = new Vue({
+				el: "#app",
+				data: {
+					name:'',
+					pwd:''
+				},
+				methods:{
+					handleSubmit:function(){
+						console.log(this.name,this.pwd)
+					},
+					clear:function(){
+						//一键删除输入的名称
+						this.name=''
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+
+			<div >{{msg}} </div>
+			<input type="text" v-model="msg"/>
+
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 双向数据绑定
+			 * 页面的值改变会影响数据，数据改变会影响页面
+			 */
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: 'hello Vue'
+				}
+			});
+			/**
+			 * MVVM设计思想
+			 * Model是数据  View是DOM
+			 * View-Model是VUE
+			 */
+		</script>
+	</body>
+</html>

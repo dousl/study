@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+
+			<div>{{msg}} </div>
+			<div v-text="msg"></div>
+			<div v-html="msg1"></div>
+			<div v-pre>{{msg}}</div>
+		</div>
+		
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * v-text填充纯文本，相比插值表达式更简洁
+			 * v-html填充HTML片段，存在安全问题，内部数据可以用，第三方数据不可用
+			 * v-pre显示原始信息，跳过编译过程。写啥显示啥
+			 */
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: 'hello Vue',
+					msg1: '<h1>nii</h1>'
+				}
+			});
+		</script>
+	</body>
+</html>

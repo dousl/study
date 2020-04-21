@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}<br />
+			{{1+2}}<br />
+			{{msg +'---'+1}}
+		</div>
+		
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * VUE使用的基本步骤：
+			 1.需要提供标签用于填充数据
+			 2.引入vue.js库文件
+			 3.可以使用vue的语法做功能
+			 4.把vue提供的数据填充到标签里
+			 */
+			var vm = new Vue({
+				el: '#app', //告诉vue需要把数据填充到哪个位置，标准id选择器
+				data: {
+					msg: 'Hello Vue'
+				}
+			});
+		</script>
+	</body>
+</html>
