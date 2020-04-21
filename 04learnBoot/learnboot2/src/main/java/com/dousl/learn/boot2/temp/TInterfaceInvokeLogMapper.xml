@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dousl.learn.boot2.temp.TInterfaceInvokeLogMapper">
+  <resultMap id="BaseResultMap" type="com.dousl.learn.boot2.temp.TInterfaceInvokeLog">
+    <result column="Inf_code" jdbcType="VARCHAR" property="infCode" />
+    <result column="Inf_consumer" jdbcType="VARCHAR" property="infConsumer" />
+    <result column="Inf_provider" jdbcType="VARCHAR" property="infProvider" />
+    <result column="REQ_PERSON" jdbcType="VARCHAR" property="reqPerson" />
+    <result column="Req_time" jdbcType="VARCHAR" property="reqTime" />
+    <result column="Req_body" jdbcType="VARCHAR" property="reqBody" />
+    <result column="Resp_time" jdbcType="VARCHAR" property="respTime" />
+    <result column="Resp_code" jdbcType="VARCHAR" property="respCode" />
+    <result column="Resp_desc" jdbcType="VARCHAR" property="respDesc" />
+    <result column="Resp_body" jdbcType="VARCHAR" property="respBody" />
+    <result column="Resp_exception" jdbcType="VARCHAR" property="respException" />
+  </resultMap>
+  <insert id="insert" parameterType="com.dousl.learn.boot2.temp.TInterfaceInvokeLog">
+    insert into T_INTERFACE_INVOKE_LOG (Inf_code, Inf_consumer, Inf_provider, 
+      REQ_PERSON, Req_time, Req_body, 
+      Resp_time, Resp_code, Resp_desc, 
+      Resp_body, Resp_exception)
+    values (#{infCode,jdbcType=VARCHAR}, #{infConsumer,jdbcType=VARCHAR}, #{infProvider,jdbcType=VARCHAR}, 
+      #{reqPerson,jdbcType=VARCHAR}, #{reqTime,jdbcType=VARCHAR}, #{reqBody,jdbcType=VARCHAR}, 
+      #{respTime,jdbcType=VARCHAR}, #{respCode,jdbcType=VARCHAR}, #{respDesc,jdbcType=VARCHAR}, 
+      #{respBody,jdbcType=VARCHAR}, #{respException,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dousl.learn.boot2.temp.TInterfaceInvokeLog">
+    insert into T_INTERFACE_INVOKE_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="infCode != null">
+        Inf_code,
+      </if>
+      <if test="infConsumer != null">
+        Inf_consumer,
+      </if>
+      <if test="infProvider != null">
+        Inf_provider,
+      </if>
+      <if test="reqPerson != null">
+        REQ_PERSON,
+      </if>
+      <if test="reqTime != null">
+        Req_time,
+      </if>
+      <if test="reqBody != null">
+        Req_body,
+      </if>
+      <if test="respTime != null">
+        Resp_time,
+      </if>
+      <if test="respCode != null">
+        Resp_code,
+      </if>
+      <if test="respDesc != null">
+        Resp_desc,
+      </if>
+      <if test="respBody != null">
+        Resp_body,
+      </if>
+      <if test="respException != null">
+        Resp_exception,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="infCode != null">
+        #{infCode,jdbcType=VARCHAR},
+      </if>
+      <if test="infConsumer != null">
+        #{infConsumer,jdbcType=VARCHAR},
+      </if>
+      <if test="infProvider != null">
+        #{infProvider,jdbcType=VARCHAR},
+      </if>
+      <if test="reqPerson != null">
+        #{reqPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTime != null">
+        #{reqTime,jdbcType=VARCHAR},
+      </if>
+      <if test="reqBody != null">
+        #{reqBody,jdbcType=VARCHAR},
+      </if>
+      <if test="respTime != null">
+        #{respTime,jdbcType=VARCHAR},
+      </if>
+      <if test="respCode != null">
+        #{respCode,jdbcType=VARCHAR},
+      </if>
+      <if test="respDesc != null">
+        #{respDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="respBody != null">
+        #{respBody,jdbcType=VARCHAR},
+      </if>
+      <if test="respException != null">
+        #{respException,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="F:\\CodeWs\\00Tool\\02maven\\Repository\\com\\oracle\\ojdbc6\\11.2.0.1.0\\ojdbc6-11.2.0.1.0.jar"/>
+<context id="DB2Tables" targetRuntime="MyBatis3">
+
+    <commentGenerator>
+        <!-- 是否去除自动生成的注释 true：是： false:否 -->
+        <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+    <!-- jdbcConnection：指定如何连接到目标数据库 -->
+    <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+                    connectionURL="jdbc:oracle:thin:@172.18.238.231:1642:osskf"
+                    userId="lnrmusr_jl"
+                    password="irms@jl0612">
+    </jdbcConnection>
+
+    <!--  类型解析-->
+    <javaTypeResolver>
+        <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.dousl.learn.boot2.temp" targetProject="src/main/java">
+        <property name="enableSubPackages" value="false"/>
+        <!-- 从数据库返回的值被清理前后的空格 -->
+        <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <!-- targetProject:mapper映射文件生成的位置 -->
+    <sqlMapGenerator targetPackage="com.dousl.learn.boot2.temp" targetProject="src/main/java">
+        <!-- enableSubPackages:是否让schema作为包的后缀 -->
+        <property name="enableSubPackages" value="false"/>
+    </sqlMapGenerator>
+
+    <!-- javaClientGenerator:指定mapper接口所在的位置 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.dousl.learn.boot2.temp"
+                         targetProject="src/main/java">
+        <!-- enableSubPackages:是否让schema作为包的后缀 -->
+        <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <!-- 指定要逆向分析哪些表：根据表要创建javaBean domainObjectName：指定生成实体类的名称 -->
+    <table tableName="rm_address_new" domainObjectName="RmAddressNew"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false" enableSelectByPrimaryKey="true"
+    enableUpdateByPrimaryKey="true"
+    enableDeleteByPrimaryKey="true" ></table>
+
+</context>
+</generatorConfiguration>
