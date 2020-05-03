@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<span>用户名：</span>
+				<span><input type="text" v-model.lazy="uname" /></span>
+				<span>{{tip}}</span>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/*
+				侦听器
+				1、采用监听器监听用户名变化
+				2、调用后台接口验证
+				3、根据验证的结果调整提示信息
+            */
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					uname:'',
+					tip:''
+				},
+				methods: {
+					checkUname:function(uname){
+						//模拟调用
+						var that = this;
+						setTimeout(function(){
+							if(uname=='admin'){
+								that.tip='用户名已被占用'
+							}else{
+								that.tip='用户名可用'
+							}
+						},2000)
+					}
+				},
+				computed: {
+				},
+				watch: {
+					uname:function(val){
+						//调用接口
+						this.checkUname(val);
+						this.tip='正在验证'
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

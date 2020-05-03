@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div>{{msg}}</div>
+			<button @click="update">更新</button>
+			<button @click="destroy">销毁</button>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/*
+				生命周期
+            */
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg:'生命周期'
+				},
+				methods: {
+					update:function(){
+						this.msg='hello'
+					},
+					destroy:function(){
+						this.$destroy()
+					}
+				},
+				beforeCreate(){
+					console.log('beforeCreate')
+				},
+				created() {
+					console.log('created')
+				},
+				beforeMount() {
+					console.log('beforeMount')
+				},
+				mounted() {
+					console.log('mounted')
+				},
+				beforeDestroy() {
+					console.log('beforeDestroy')
+				},
+				destroyed() {
+					console.log('destroyed')
+				}
+			});
+		</script>
+	</body>
+</html>

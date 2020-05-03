@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<span>
+					<input type="text" v-model="fname" />
+					<button @click="add">添加</button>
+					<button @click="del">删除</button>
+					<button @click="change">修改</button>
+				</span>
+			</div>
+			<ul>
+				<li :key='index' v-for="(item,index) in list">{{item}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/*
+				数组
+            */
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					fname:'',
+					list:['apple','banana','orange']
+				},
+				methods: {
+					add:function(){
+						this.list.push(this.fname)
+					},
+					del:function(){
+						this.list.pop()
+					},
+					change:function(){
+						this.list = this.list.slice(0,2)   //非变异方法，会生成一个新数组，原数组实际上不变，所以需要再赋值
+					}
+				},
+			});
+		</script>
+	</body>
+</html>

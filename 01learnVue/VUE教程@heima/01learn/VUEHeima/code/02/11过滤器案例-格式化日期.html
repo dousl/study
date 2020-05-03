@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>Z
+		<div id="app">
+			<div>{{date | formatDate('yyyy-MM-dd')}}</div>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/*
+				过滤器
+            */
+			Vue.filter('formatDate', function(val, arg) {
+				if (arg == 'yyyy-MM-dd') {
+					return val.getFullYear() + '-' + (val.getMonth() + 1) + '-' + val.getDate()
+				}
+				return val
+			})
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					date: new Date()
+				},
+				methods: {
+
+				},
+				computed: {},
+				watch: {
+
+				},
+				filters: { //局部过滤器
+				}
+			});
+		</script>
+	</body>
+</html>
