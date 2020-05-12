@@ -2,6 +2,7 @@
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--这个，生成手机端表实体类！！-->
 <generatorConfiguration>
     <classPathEntry location="F:\\CodeWs\\00Tool\\02maven\\Repository\\com\\oracle\\ojdbc6\\11.2.0.1.0\\ojdbc6-11.2.0.1.0.jar"/>
 <context id="DB2Tables" targetRuntime="MyBatis3">
@@ -42,7 +43,7 @@
     </javaClientGenerator>
 
     <!-- 指定要逆向分析哪些表：根据表要创建javaBean domainObjectName：指定生成实体类的名称 -->
-    <table tableName="rm_address_new" domainObjectName="RmAddressNew"
+    <table tableName="DRESORDERUSER" domainObjectName="DresOrderUser"
            enableCountByExample="false" enableUpdateByExample="false"
            enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false" enableSelectByPrimaryKey="true"

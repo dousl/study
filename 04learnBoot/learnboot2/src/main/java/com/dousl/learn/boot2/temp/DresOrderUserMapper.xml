@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dousl.learn.boot2.temp.DresOrderUserMapper">
+  <resultMap id="BaseResultMap" type="com.dousl.learn.boot2.temp.DresOrderUser">
+    <id column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="CUST_ID" jdbcType="VARCHAR" property="custId" />
+    <result column="CUST_NAME" jdbcType="VARCHAR" property="custName" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="CITY_ID" jdbcType="VARCHAR" property="cityId" />
+    <result column="USER_PHONE" jdbcType="VARCHAR" property="userPhone" />
+    <result column="OLD_USER_PHONE" jdbcType="VARCHAR" property="oldUserPhone" />
+    <result column="USER_DETAIL_ADDRESS" jdbcType="VARCHAR" property="userDetailAddress" />
+    <result column="OLD_USER_DETAIL_ADDRESS" jdbcType="VARCHAR" property="oldUserDetailAddress" />
+    <result column="USER_ADDRESS_ID" jdbcType="VARCHAR" property="userAddressId" />
+    <result column="OLD_USER_ADDRESS_ID" jdbcType="VARCHAR" property="oldUserAddressId" />
+    <result column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="OLD_PRODUCT_ID" jdbcType="VARCHAR" property="oldProductId" />
+    <result column="USER_ROOM_ID" jdbcType="VARCHAR" property="userRoomId" />
+    <result column="OLD_USER_ROOM_ID" jdbcType="VARCHAR" property="oldUserRoomId" />
+    <result column="NET_TYPE_ID" jdbcType="VARCHAR" property="netTypeId" />
+    <result column="OLD_NET_TYPE_ID" jdbcType="VARCHAR" property="oldNetTypeId" />
+    <result column="RELATION_PERSON" jdbcType="VARCHAR" property="relationPerson" />
+    <result column="RELATION_PHONE" jdbcType="VARCHAR" property="relationPhone" />
+    <result column="DEVICE_SHARE_PHONE" jdbcType="VARCHAR" property="deviceSharePhone" />
+    <result column="NEAR_PHONE" jdbcType="VARCHAR" property="nearPhone" />
+    <result column="NET_SPEED" jdbcType="VARCHAR" property="netSpeed" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORDER_ID, CUST_ID, CUST_NAME, USER_ID, USER_NAME, CITY_ID, USER_PHONE, OLD_USER_PHONE, 
+    USER_DETAIL_ADDRESS, OLD_USER_DETAIL_ADDRESS, USER_ADDRESS_ID, OLD_USER_ADDRESS_ID, 
+    PRODUCT_ID, OLD_PRODUCT_ID, USER_ROOM_ID, OLD_USER_ROOM_ID, NET_TYPE_ID, OLD_NET_TYPE_ID, 
+    RELATION_PERSON, RELATION_PHONE, DEVICE_SHARE_PHONE, NEAR_PHONE, NET_SPEED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DRESORDERUSER
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DRESORDERUSER
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dousl.learn.boot2.temp.DresOrderUser">
+    insert into DRESORDERUSER (ORDER_ID, CUST_ID, CUST_NAME, 
+      USER_ID, USER_NAME, CITY_ID, 
+      USER_PHONE, OLD_USER_PHONE, USER_DETAIL_ADDRESS, 
+      OLD_USER_DETAIL_ADDRESS, USER_ADDRESS_ID, OLD_USER_ADDRESS_ID, 
+      PRODUCT_ID, OLD_PRODUCT_ID, USER_ROOM_ID, 
+      OLD_USER_ROOM_ID, NET_TYPE_ID, OLD_NET_TYPE_ID, 
+      RELATION_PERSON, RELATION_PHONE, DEVICE_SHARE_PHONE, 
+      NEAR_PHONE, NET_SPEED)
+    values (#{orderId,jdbcType=VARCHAR}, #{custId,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{cityId,jdbcType=VARCHAR}, 
+      #{userPhone,jdbcType=VARCHAR}, #{oldUserPhone,jdbcType=VARCHAR}, #{userDetailAddress,jdbcType=VARCHAR}, 
+      #{oldUserDetailAddress,jdbcType=VARCHAR}, #{userAddressId,jdbcType=VARCHAR}, #{oldUserAddressId,jdbcType=VARCHAR}, 
+      #{productId,jdbcType=VARCHAR}, #{oldProductId,jdbcType=VARCHAR}, #{userRoomId,jdbcType=VARCHAR}, 
+      #{oldUserRoomId,jdbcType=VARCHAR}, #{netTypeId,jdbcType=VARCHAR}, #{oldNetTypeId,jdbcType=VARCHAR}, 
+      #{relationPerson,jdbcType=VARCHAR}, #{relationPhone,jdbcType=VARCHAR}, #{deviceSharePhone,jdbcType=VARCHAR}, 
+      #{nearPhone,jdbcType=VARCHAR}, #{netSpeed,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dousl.learn.boot2.temp.DresOrderUser">
+    insert into DRESORDERUSER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="custId != null">
+        CUST_ID,
+      </if>
+      <if test="custName != null">
+        CUST_NAME,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="userPhone != null">
+        USER_PHONE,
+      </if>
+      <if test="oldUserPhone != null">
+        OLD_USER_PHONE,
+      </if>
+      <if test="userDetailAddress != null">
+        USER_DETAIL_ADDRESS,
+      </if>
+      <if test="oldUserDetailAddress != null">
+        OLD_USER_DETAIL_ADDRESS,
+      </if>
+      <if test="userAddressId != null">
+        USER_ADDRESS_ID,
+      </if>
+      <if test="oldUserAddressId != null">
+        OLD_USER_ADDRESS_ID,
+      </if>
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="oldProductId != null">
+        OLD_PRODUCT_ID,
+      </if>
+      <if test="userRoomId != null">
+        USER_ROOM_ID,
+      </if>
+      <if test="oldUserRoomId != null">
+        OLD_USER_ROOM_ID,
+      </if>
+      <if test="netTypeId != null">
+        NET_TYPE_ID,
+      </if>
+      <if test="oldNetTypeId != null">
+        OLD_NET_TYPE_ID,
+      </if>
+      <if test="relationPerson != null">
+        RELATION_PERSON,
+      </if>
+      <if test="relationPhone != null">
+        RELATION_PHONE,
+      </if>
+      <if test="deviceSharePhone != null">
+        DEVICE_SHARE_PHONE,
+      </if>
+      <if test="nearPhone != null">
+        NEAR_PHONE,
+      </if>
+      <if test="netSpeed != null">
+        NET_SPEED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserPhone != null">
+        #{oldUserPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userDetailAddress != null">
+        #{userDetailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserDetailAddress != null">
+        #{oldUserDetailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddressId != null">
+        #{userAddressId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserAddressId != null">
+        #{oldUserAddressId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldProductId != null">
+        #{oldProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoomId != null">
+        #{userRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserRoomId != null">
+        #{oldUserRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeId != null">
+        #{netTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldNetTypeId != null">
+        #{oldNetTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="relationPerson != null">
+        #{relationPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="relationPhone != null">
+        #{relationPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceSharePhone != null">
+        #{deviceSharePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="nearPhone != null">
+        #{nearPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="netSpeed != null">
+        #{netSpeed,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dousl.learn.boot2.temp.DresOrderUser">
+    update DRESORDERUSER
+    <set>
+      <if test="custId != null">
+        CUST_ID = #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null">
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        USER_PHONE = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserPhone != null">
+        OLD_USER_PHONE = #{oldUserPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userDetailAddress != null">
+        USER_DETAIL_ADDRESS = #{userDetailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserDetailAddress != null">
+        OLD_USER_DETAIL_ADDRESS = #{oldUserDetailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddressId != null">
+        USER_ADDRESS_ID = #{userAddressId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserAddressId != null">
+        OLD_USER_ADDRESS_ID = #{oldUserAddressId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        PRODUCT_ID = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldProductId != null">
+        OLD_PRODUCT_ID = #{oldProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoomId != null">
+        USER_ROOM_ID = #{userRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUserRoomId != null">
+        OLD_USER_ROOM_ID = #{oldUserRoomId,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeId != null">
+        NET_TYPE_ID = #{netTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldNetTypeId != null">
+        OLD_NET_TYPE_ID = #{oldNetTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="relationPerson != null">
+        RELATION_PERSON = #{relationPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="relationPhone != null">
+        RELATION_PHONE = #{relationPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceSharePhone != null">
+        DEVICE_SHARE_PHONE = #{deviceSharePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="nearPhone != null">
+        NEAR_PHONE = #{nearPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="netSpeed != null">
+        NET_SPEED = #{netSpeed,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dousl.learn.boot2.temp.DresOrderUser">
+    update DRESORDERUSER
+    set CUST_ID = #{custId,jdbcType=VARCHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=VARCHAR},
+      USER_PHONE = #{userPhone,jdbcType=VARCHAR},
+      OLD_USER_PHONE = #{oldUserPhone,jdbcType=VARCHAR},
+      USER_DETAIL_ADDRESS = #{userDetailAddress,jdbcType=VARCHAR},
+      OLD_USER_DETAIL_ADDRESS = #{oldUserDetailAddress,jdbcType=VARCHAR},
+      USER_ADDRESS_ID = #{userAddressId,jdbcType=VARCHAR},
+      OLD_USER_ADDRESS_ID = #{oldUserAddressId,jdbcType=VARCHAR},
+      PRODUCT_ID = #{productId,jdbcType=VARCHAR},
+      OLD_PRODUCT_ID = #{oldProductId,jdbcType=VARCHAR},
+      USER_ROOM_ID = #{userRoomId,jdbcType=VARCHAR},
+      OLD_USER_ROOM_ID = #{oldUserRoomId,jdbcType=VARCHAR},
+      NET_TYPE_ID = #{netTypeId,jdbcType=VARCHAR},
+      OLD_NET_TYPE_ID = #{oldNetTypeId,jdbcType=VARCHAR},
+      RELATION_PERSON = #{relationPerson,jdbcType=VARCHAR},
+      RELATION_PHONE = #{relationPhone,jdbcType=VARCHAR},
+      DEVICE_SHARE_PHONE = #{deviceSharePhone,jdbcType=VARCHAR},
+      NEAR_PHONE = #{nearPhone,jdbcType=VARCHAR},
+      NET_SPEED = #{netSpeed,jdbcType=VARCHAR}
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </update>
+</mapper>
