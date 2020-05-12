@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+			<fruit-list :list='list'>
+				<template slot-scope='slotProps'>
+					<strong v-if='slotProps.info.id==2'>{{slotProps.info.name}}</strong>
+					<span v-else>{{slotProps.info.name}}</span>
+				</template>
+			</fruit-list>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 13-具名插槽
+			 */
+
+			Vue.component('fruit-list', {
+				props: ['list'],
+				template: `
+				<div>
+				<ul>
+				<li :key='item.id' v-for='item in list'>
+					<slot :info='item'>{{item.name}}</slot>
+				</li>
+				</ul>
+				</div>
+				`,
+
+			});
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: '父组件',
+					list: [{
+						id: 1,
+						name: 'apple'
+					}, {
+						id: 2,
+						name: 'orange'
+					}, {
+						id: 3,
+						name: 'banana'
+					}]
+				},
+				methods: {}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<div>{{pmsg}}</div>
+		<!-- pnum是字符串，:pnum绑定时是数值  其他类型类似；通过v-bind:绑定才是原来的类型 -->
+		<menu-item pstr="pstr" pnum='12' pboo='true' :parr='parr' :pobj='pobj'></menu-item>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 父组件向子组件传值
+			 */
+			Vue.component('menu-item',{
+				props:['pstr','pnum','pboo','parr','pobj'],
+				template:`
+				<div>
+				<div>{{pstr}}</div>
+				<div>{{pnum}}</div>
+				<div>{{pboo}}</div>
+				<ul>
+				<li :key='index' v-for='(item,index) in parr'>{{item}}</li>
+				</ul>
+				<div>
+				{{pobj.name}}+"--"+{{pobj.age}}
+				</div>
+				</div>`
+			})
+			var app = new Vue({
+				el: "#app",
+				data: {
+					pmsg:'父组件的内容',
+					ptitle:'父组件动态赋值',
+					parr:[
+						'orange',
+						'apple',
+						'banana'
+					],
+					pobj:{
+						name:'lisi',
+						age:'15'
+					}
+				},
+				components: {
+				}
+			});
+		</script>
+	</body>
+</html>

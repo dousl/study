@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+			<test-box>
+				<p slot='header'>标题信息</p>
+				<p>1</p>
+				<p>2</p>
+				<p slot='footer'>底部信息</p>
+				<span slot='header'>span</span>
+			</test-box>
+			-------------------
+			<test-box>
+				<!-- template为固定名，就是用来简化的 -->
+				<template slot='header'>
+					<p>标题信息1</p>
+					<p>标题信息2</p>
+				</template>
+				<p>1</p>
+				<p>2</p>
+				<template slot='footer'>
+					<p>底部信息1</p>
+					<p>底部信息2</p>
+				</template>
+
+			</test-box>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 13-具名插槽
+			 */
+
+			Vue.component('test-box', {
+
+				template: `
+				<div>
+				<header>
+					<slot name='header'></slot>
+				</header>
+				<main>
+					<slot></slot>
+				</main>
+				<footer>
+					<slot name='footer'></slot>
+				</footer>
+				</div>
+				`,
+
+			});
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: '父组件'
+				},
+				methods: {}
+			});
+		</script>
+	</body>
+</html>

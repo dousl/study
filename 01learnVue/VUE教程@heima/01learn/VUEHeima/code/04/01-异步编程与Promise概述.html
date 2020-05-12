@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+
+			<div >{{msg}} </div>
+
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript">
+			var ret = '---'
+			$.ajax({
+				url:'http://localhost:3000/data',
+				success:function(data){
+					// console.log(data)
+					ret  = data;
+					console.log(ret)
+				}
+			});
+			console.log(ret)
+			
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: 'hello Vue'
+				}
+			});
+			
+			
+			//想要控制调用顺序只能回调
+			//回调地狱！
+		</script>
+	</body>
+</html>

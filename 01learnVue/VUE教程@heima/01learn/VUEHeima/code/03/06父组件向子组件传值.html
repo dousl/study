@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<div>{{pmsg}}</div>
+		<menu-item title="来自父组件的值"></menu-item>
+		<menu-item :title="ptitle" content="父组件结合使用"></menu-item>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 父组件向子组件传值
+			 */
+			Vue.component('menu-item',{
+				props:['title','content'],
+				data:function(){
+					return {
+						msg:'子组件的内容'
+					}
+				},
+				template:`<div>{{msg + '--' +title +'---' +content}}</div>`
+			})
+			var app = new Vue({
+				el: "#app",
+				data: {
+					pmsg:'父组件的内容',
+					ptitle:'父组件动态赋值'
+				},
+				components: {
+				}
+			});
+		</script>
+	</body>
+</html>

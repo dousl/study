@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<div>{{pmsg}}</div>
+		<menu-item menu-title="来自父组件的值"></menu-item>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 父组件向子组件传值
+			 */
+			Vue.component('third-item',{
+				props:['testTitle'],
+				template:`<div>{{testTitle}}</div>`
+			})
+			Vue.component('menu-item',{
+				props:['menuTitle'],
+				template:`<div>{{menuTitle}}<third-item testTitle='测试字符串模板驼峰传值'></third-item></div>`
+			})
+			var app = new Vue({
+				el: "#app",
+				data: {
+					pmsg:'父组件的内容',
+					ptitle:'父组件动态赋值'
+				},
+				components: {
+				}
+			});
+		</script>
+	</body>
+</html>

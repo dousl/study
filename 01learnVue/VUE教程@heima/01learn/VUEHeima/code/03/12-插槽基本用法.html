@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<div id="app">
+		<alert-box>测试</alert-box>
+		<alert-box></alert-box>
+		</div>
+
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 12-插槽基本用法
+			 * slot是vue的api，名字是固定的
+			 * 标签中可以写默认内容，有赋值被覆盖无赋值则显示
+			 */
+			
+			Vue.component('alert-box',{
+				
+				template:`
+				<div>
+				<strong>ERROR:</strong>
+				<slot>默认内容</slot>
+				</div>
+				`,
+				
+			});
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: '父组件'
+				},
+				methods:{
+				}
+			});
+		</script>
+	</body>
+</html>
