@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dousl.learn.boot2.temp.RmPaylimitExamineMapper">
+  <resultMap id="BaseResultMap" type="com.dousl.learn.boot2.temp.RmPaylimitExamine">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="ADDRESS_ID" jdbcType="VARCHAR" property="addressId" />
+    <result column="LIMIT_CODE" jdbcType="VARCHAR" property="limitCode" />
+    <result column="LIMIT_NAME" jdbcType="VARCHAR" property="limitName" />
+    <result column="LIMIT_DESC" jdbcType="VARCHAR" property="limitDesc" />
+    <result column="IF_TRIPART_LIMIT" jdbcType="VARCHAR" property="ifTripartLimit" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+    <result column="IS_DELETE" jdbcType="VARCHAR" property="isDelete" />
+    <result column="CREATE_PERSON" jdbcType="VARCHAR" property="createPerson" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_PERSON" jdbcType="VARCHAR" property="updatePerson" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="DELETE_PERSON" jdbcType="VARCHAR" property="deletePerson" />
+    <result column="DELETE_TIME" jdbcType="TIMESTAMP" property="deleteTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, ADDRESS_ID, LIMIT_CODE, LIMIT_NAME, LIMIT_DESC, IF_TRIPART_LIMIT, STATE, IS_DELETE, 
+    CREATE_PERSON, CREATE_TIME, UPDATE_PERSON, UPDATE_TIME, DELETE_PERSON, DELETE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from RM_PAYLIMIT_EXAMINE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RM_PAYLIMIT_EXAMINE
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dousl.learn.boot2.temp.RmPaylimitExamine">
+    insert into RM_PAYLIMIT_EXAMINE (ID, ADDRESS_ID, LIMIT_CODE, 
+      LIMIT_NAME, LIMIT_DESC, IF_TRIPART_LIMIT, 
+      STATE, IS_DELETE, CREATE_PERSON, 
+      CREATE_TIME, UPDATE_PERSON, UPDATE_TIME, 
+      DELETE_PERSON, DELETE_TIME)
+    values (#{id,jdbcType=VARCHAR}, #{addressId,jdbcType=VARCHAR}, #{limitCode,jdbcType=VARCHAR}, 
+      #{limitName,jdbcType=VARCHAR}, #{limitDesc,jdbcType=VARCHAR}, #{ifTripartLimit,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, #{createPerson,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updatePerson,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deletePerson,jdbcType=VARCHAR}, #{deleteTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dousl.learn.boot2.temp.RmPaylimitExamine">
+    insert into RM_PAYLIMIT_EXAMINE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="addressId != null">
+        ADDRESS_ID,
+      </if>
+      <if test="limitCode != null">
+        LIMIT_CODE,
+      </if>
+      <if test="limitName != null">
+        LIMIT_NAME,
+      </if>
+      <if test="limitDesc != null">
+        LIMIT_DESC,
+      </if>
+      <if test="ifTripartLimit != null">
+        IF_TRIPART_LIMIT,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE,
+      </if>
+      <if test="createPerson != null">
+        CREATE_PERSON,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updatePerson != null">
+        UPDATE_PERSON,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="deletePerson != null">
+        DELETE_PERSON,
+      </if>
+      <if test="deleteTime != null">
+        DELETE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=VARCHAR},
+      </if>
+      <if test="limitCode != null">
+        #{limitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="limitName != null">
+        #{limitName,jdbcType=VARCHAR},
+      </if>
+      <if test="limitDesc != null">
+        #{limitDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ifTripartLimit != null">
+        #{ifTripartLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createPerson != null">
+        #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null">
+        #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletePerson != null">
+        #{deletePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null">
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dousl.learn.boot2.temp.RmPaylimitExamine">
+    update RM_PAYLIMIT_EXAMINE
+    <set>
+      <if test="addressId != null">
+        ADDRESS_ID = #{addressId,jdbcType=VARCHAR},
+      </if>
+      <if test="limitCode != null">
+        LIMIT_CODE = #{limitCode,jdbcType=VARCHAR},
+      </if>
+      <if test="limitName != null">
+        LIMIT_NAME = #{limitName,jdbcType=VARCHAR},
+      </if>
+      <if test="limitDesc != null">
+        LIMIT_DESC = #{limitDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ifTripartLimit != null">
+        IF_TRIPART_LIMIT = #{ifTripartLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createPerson != null">
+        CREATE_PERSON = #{createPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatePerson != null">
+        UPDATE_PERSON = #{updatePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletePerson != null">
+        DELETE_PERSON = #{deletePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null">
+        DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dousl.learn.boot2.temp.RmPaylimitExamine">
+    update RM_PAYLIMIT_EXAMINE
+    set ADDRESS_ID = #{addressId,jdbcType=VARCHAR},
+      LIMIT_CODE = #{limitCode,jdbcType=VARCHAR},
+      LIMIT_NAME = #{limitName,jdbcType=VARCHAR},
+      LIMIT_DESC = #{limitDesc,jdbcType=VARCHAR},
+      IF_TRIPART_LIMIT = #{ifTripartLimit,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+      CREATE_PERSON = #{createPerson,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_PERSON = #{updatePerson,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      DELETE_PERSON = #{deletePerson,jdbcType=VARCHAR},
+      DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -35,7 +35,7 @@
 			var p2 = queryData('http://localhost:3000/a2')
 			var p3 = queryData('http://localhost:3000/a3')
 			// Promise.all([p1,p2,p3]).then(function(result){
-			// 	console.log(result);//result中有三个请求的返回值，结果是数组，顺序与传入一直
+			// 	console.log(result);//result中有三个请求的返回值，结果是数组，顺序与传入一致
 			// })
 			
 			Promise.race([p1,p2,p3]).then(function(result){
